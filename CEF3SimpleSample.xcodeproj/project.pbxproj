@@ -23,7 +23,6 @@
 		E79F39ED17D4FDFB0081FCA7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79F38B317D4DDFD0081FCA7 /* Cocoa.framework */; };
 		E79F3A7A17D4FFDB0081FCA7 /* CEF3 Simple Sample Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = E79F3A2B17D4FDFB0081FCA7 /* CEF3 Simple Sample Helper.app */; };
 		E7A14E751AE01418005672E7 /* Chromium Embedded Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A14E741AE01418005672E7 /* Chromium Embedded Framework.framework */; };
-		E7A14E761AE01418005672E7 /* Chromium Embedded Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A14E741AE01418005672E7 /* Chromium Embedded Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7A14E771AE01427005672E7 /* libcef_dll_wrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E79F38DF17D4DF770081FCA7 /* libcef_dll_wrapper.a */; };
 		E7A14E781AE01446005672E7 /* libcef_dll_wrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E79F38DF17D4DF770081FCA7 /* libcef_dll_wrapper.a */; };
 		E7A14E791AE01457005672E7 /* Chromium Embedded Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A14E741AE01418005672E7 /* Chromium Embedded Framework.framework */; };
@@ -50,17 +49,6 @@
 				E79F3A7A17D4FFDB0081FCA7 /* CEF3 Simple Sample Helper.app in CopyFiles */,
 				E7A14E7A1AE01457005672E7 /* Chromium Embedded Framework.framework in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7F810521AE00D0E00B143D5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E7A14E761AE01418005672E7 /* Chromium Embedded Framework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -227,7 +215,6 @@
 				E79F39F017D4FDFB0081FCA7 /* Resources */,
 				E73EAEC017D529C000DC9A30 /* Run - Change libcef.dylib reference */,
 				E73EAEC117D52A4600DC9A30 /* Run - Change Mach-O Flags */,
-				E7F810521AE00D0E00B143D5 /* Embed Frameworks */,
 				E7F810531AE00FC700B143D5 /* ShellScript */,
 			);
 			buildRules = (
@@ -395,7 +382,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "install_name_tool -change \"@executable_path/Chromium Embedded Framework\" \"@loader_path/../Frameworks/Chromium Embedded Framework.framework/Chromium Embedded Framework\" \"$TARGET_BUILD_DIR/$TARGET_NAME.app/Contents/MacOS/$PRODUCT_NAME\"";
+			shellScript = "install_name_tool -change \"@executable_path/Chromium Embedded Framework\" \"@loader_path/../../../../Frameworks/Chromium Embedded Framework.framework/Chromium Embedded Framework\" \"$TARGET_BUILD_DIR/$TARGET_NAME.app/Contents/MacOS/$PRODUCT_NAME\"";
 		};
 		E7F810541AE0103600B143D5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
